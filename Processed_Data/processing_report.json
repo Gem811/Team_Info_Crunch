@@ -1,0 +1,79 @@
+{
+  "input_directory": "C:\\Users\\Hans\\Documents\\GitHub\\Team_Info_Crunch\\Dataset_Files",
+  "text_files_scanned": 378,
+  "rows_read": 8631121,
+  "empty_lines_skipped": 0,
+  "valid_rows_before_deduplication": 8409758,
+  "unique_video_records": 7775424,
+  "duplicate_rows_reduced": 634334,
+  "rejected_rows": 221363,
+  "rejected_by_reason": {
+    "negative_comments": 2189,
+    "too_few_fields": 219174
+  },
+  "invalid_related_ids_removed": 84,
+  "duplicate_related_ids_removed": 42,
+  "excess_related_ids_removed": 693,
+  "snapshot_selection": "Newest dated snapshot per video ID; on equal dates, prefer the row with more related IDs, then the earliest source row.",
+  "crawl_updates_directory": "C:\\Users\\Hans\\Documents\\GitHub\\Team_Info_Crunch\\Updating_Crawl_Data",
+  "crawl_updates": {
+    "duplicate_rows_reduced": 3389688,
+    "rejected_rows": 774043,
+    "rows_read": 4623189,
+    "source_files_scanned": 28,
+    "unique_update_records": 459458,
+    "valid_rows_before_deduplication": 3849146,
+    "rejected_by_reason": {
+      "invalid_crawl_update_field_count": 774043
+    },
+    "video_rows_processed": 7775424,
+    "video_rows_updated": 455992,
+    "update_records_without_video_data": 3466
+  },
+  "enrichment_directory": "C:\\Users\\Hans\\Documents\\GitHub\\Team_Info_Crunch\\Data_FileSize_Bitrate",
+  "enrichment": {
+    "invalid_bitrate_values": 50964,
+    "invalid_size_values": 57,
+    "missing_bitrate_values": 18922,
+    "missing_size_values": 31897,
+    "source_files_scanned": 4,
+    "source_rows_read": 552647,
+    "unique_video_ids_with_bitrate": 310668,
+    "unique_video_ids_with_size": 317257,
+    "valid_bitrate_values": 285444,
+    "valid_size_values": 319073,
+    "vbr_bitrate_values": 21806,
+    "size_ids_not_in_video_data": 102,
+    "bitrate_ids_not_in_video_data": 96,
+    "videos_with_file_size": 317155,
+    "videos_with_bitrate": 310140,
+    "measured_bitrates": 281156,
+    "calculated_bitrates": 28984,
+    "size_length_mismatches": 0,
+    "bitrate_length_mismatches": 0,
+    "valid_bitrate_range_kbps": [
+      0.1,
+      100000.0
+    ],
+    "calculated_bitrate_formula": "file_size_bytes * 8 / (length_seconds * 1000), rounded to 3 decimal places"
+  },
+  "user_information_directory": "C:\\Users\\Hans\\Documents\\GitHub\\Team_Info_Crunch\\Datasets_User_Information",
+  "user_information": {
+    "duplicate_rows_reduced": 408824,
+    "rejected_rows": 16,
+    "rows_read": 3201433,
+    "source_encoding_cp1252": 1,
+    "source_encoding_utf-8-sig": 1,
+    "source_files_scanned": 2,
+    "unique_user_records": 2792593,
+    "users_with_friends": 653484,
+    "valid_rows_before_deduplication": 3201417,
+    "rejected_by_reason": {
+      "invalid_user_field_count": 16
+    },
+    "user_ids_with_video_data": 2792150,
+    "user_ids_not_in_video_data": 443,
+    "videos_with_user_information": 7650916,
+    "videos_without_user_information": 124508
+  }
+}
