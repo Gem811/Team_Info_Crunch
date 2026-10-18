@@ -1,0 +1,245 @@
+{
+  "status": "passed",
+  "started_at_utc": "2026-10-15T23:09:47.016072+00:00",
+  "batch_size": 2000,
+  "mode": "ingest",
+  "database": "d4bdfa39",
+  "input": {
+    "nodes": 154696,
+    "edges": 351310,
+    "files": [
+      {
+        "name": "nodes.csv",
+        "bytes": 9648106,
+        "sha256": "994c3b04ebdb96fd4325b0e87996f8f01a418663053ac11df06d5e19ff6fb0e2"
+      },
+      {
+        "name": "edges.csv",
+        "bytes": 8782765,
+        "sha256": "119870846e709ea2296902e33cedf972ad1e16fda565d60488121f38c7911bc0"
+      }
+    ]
+  },
+  "preflight_seconds": 15.737209200160578,
+  "before": {
+    "nodes": 154696,
+    "edges": 351310
+  },
+  "schema": {
+    "constraints": [
+      {
+        "name": "video_id_unique",
+        "type": "NODE_PROPERTY_UNIQUENESS",
+        "labelsOrTypes": [
+          "Video"
+        ],
+        "properties": [
+          "id"
+        ]
+      }
+    ],
+    "indexes": [
+      {
+        "name": "index_1b9dcc97",
+        "state": "ONLINE",
+        "type": "LOOKUP",
+        "entityType": "RELATIONSHIP",
+        "labelsOrTypes": null,
+        "properties": null
+      },
+      {
+        "name": "index_460996c0",
+        "state": "ONLINE",
+        "type": "LOOKUP",
+        "entityType": "NODE",
+        "labelsOrTypes": null,
+        "properties": null
+      },
+      {
+        "name": "video_category",
+        "state": "ONLINE",
+        "type": "RANGE",
+        "entityType": "NODE",
+        "labelsOrTypes": [
+          "Video"
+        ],
+        "properties": [
+          "category"
+        ]
+      },
+      {
+        "name": "video_file_size",
+        "state": "ONLINE",
+        "type": "RANGE",
+        "entityType": "NODE",
+        "labelsOrTypes": [
+          "Video"
+        ],
+        "properties": [
+          "file_size_bytes"
+        ]
+      },
+      {
+        "name": "video_id_unique",
+        "state": "ONLINE",
+        "type": "RANGE",
+        "entityType": "NODE",
+        "labelsOrTypes": [
+          "Video"
+        ],
+        "properties": [
+          "id"
+        ]
+      },
+      {
+        "name": "video_length",
+        "state": "ONLINE",
+        "type": "RANGE",
+        "entityType": "NODE",
+        "labelsOrTypes": [
+          "Video"
+        ],
+        "properties": [
+          "length"
+        ]
+      },
+      {
+        "name": "video_views",
+        "state": "ONLINE",
+        "type": "RANGE",
+        "entityType": "NODE",
+        "labelsOrTypes": [
+          "Video"
+        ],
+        "properties": [
+          "views"
+        ]
+      }
+    ]
+  },
+  "schema_seconds": 0.5060820998623967,
+  "nodes": {
+    "records": 154696,
+    "batches": 78,
+    "seconds": 37.37386789987795,
+    "records_per_second": 4139.148787447423,
+    "nodes_created": 0,
+    "relationships_created": 0
+  },
+  "edges": {
+    "records": 351310,
+    "batches": 176,
+    "seconds": 56.36345850001089,
+    "records_per_second": 6232.939023781376,
+    "nodes_created": 0,
+    "relationships_created": 0
+  },
+  "ingestion": {
+    "seconds": 93.73732639988884,
+    "records_per_second": 5398.127079508852
+  },
+  "validation": {
+    "passed": true,
+    "counts": {
+      "nodes": 154696,
+      "edges": 351310
+    },
+    "node_properties_checked": 154696,
+    "edges_checked": 351310,
+    "schema": {
+      "constraints": [
+        {
+          "name": "video_id_unique",
+          "type": "NODE_PROPERTY_UNIQUENESS",
+          "labelsOrTypes": [
+            "Video"
+          ],
+          "properties": [
+            "id"
+          ]
+        }
+      ],
+      "indexes": [
+        {
+          "name": "index_1b9dcc97",
+          "state": "ONLINE",
+          "type": "LOOKUP",
+          "entityType": "RELATIONSHIP",
+          "labelsOrTypes": null,
+          "properties": null
+        },
+        {
+          "name": "index_460996c0",
+          "state": "ONLINE",
+          "type": "LOOKUP",
+          "entityType": "NODE",
+          "labelsOrTypes": null,
+          "properties": null
+        },
+        {
+          "name": "video_category",
+          "state": "ONLINE",
+          "type": "RANGE",
+          "entityType": "NODE",
+          "labelsOrTypes": [
+            "Video"
+          ],
+          "properties": [
+            "category"
+          ]
+        },
+        {
+          "name": "video_file_size",
+          "state": "ONLINE",
+          "type": "RANGE",
+          "entityType": "NODE",
+          "labelsOrTypes": [
+            "Video"
+          ],
+          "properties": [
+            "file_size_bytes"
+          ]
+        },
+        {
+          "name": "video_id_unique",
+          "state": "ONLINE",
+          "type": "RANGE",
+          "entityType": "NODE",
+          "labelsOrTypes": [
+            "Video"
+          ],
+          "properties": [
+            "id"
+          ]
+        },
+        {
+          "name": "video_length",
+          "state": "ONLINE",
+          "type": "RANGE",
+          "entityType": "NODE",
+          "labelsOrTypes": [
+            "Video"
+          ],
+          "properties": [
+            "length"
+          ]
+        },
+        {
+          "name": "video_views",
+          "state": "ONLINE",
+          "type": "RANGE",
+          "entityType": "NODE",
+          "labelsOrTypes": [
+            "Video"
+          ],
+          "properties": [
+            "views"
+          ]
+        }
+      ]
+    }
+  },
+  "validation_seconds": 87.41020120005123,
+  "total_seconds": 198.59552580001764,
+  "total_records_per_second": 2547.9224567704487
+}

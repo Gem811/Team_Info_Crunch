@@ -1,0 +1,7 @@
+{
+  "method": "All nodes; every Nth edge in prepared CSV order, starting at index 0",
+  "edge_stride": 3,
+  "input_edges": 1053929,
+  "output_edges": 351310,
+  "limitation": "Not a connected-subgraph or statistically representative sample"
+}

@@ -1,0 +1,21 @@
+{
+  "client_os": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.14",
+  "neo4j_components": [
+    {
+      "name": "Neo4j Kernel",
+      "versions": [
+        "5.27-aura"
+      ],
+      "edition": "enterprise"
+    },
+    {
+      "name": "Cypher",
+      "versions": [
+        "5",
+        "25"
+      ],
+      "edition": ""
+    }
+  ]
+}

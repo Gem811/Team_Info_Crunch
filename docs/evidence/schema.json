@@ -1,0 +1,100 @@
+{
+  "status": "schema_ready",
+  "started_at_utc": "2026-10-15T23:05:11.038081+00:00",
+  "batch_size": 2000,
+  "mode": "ingest",
+  "database": "d4bdfa39",
+  "schema": {
+    "constraints": [
+      {
+        "name": "video_id_unique",
+        "type": "NODE_PROPERTY_UNIQUENESS",
+        "labelsOrTypes": [
+          "Video"
+        ],
+        "properties": [
+          "id"
+        ]
+      }
+    ],
+    "indexes": [
+      {
+        "name": "index_1b9dcc97",
+        "state": "ONLINE",
+        "type": "LOOKUP",
+        "entityType": "RELATIONSHIP",
+        "labelsOrTypes": null,
+        "properties": null
+      },
+      {
+        "name": "index_460996c0",
+        "state": "ONLINE",
+        "type": "LOOKUP",
+        "entityType": "NODE",
+        "labelsOrTypes": null,
+        "properties": null
+      },
+      {
+        "name": "video_category",
+        "state": "ONLINE",
+        "type": "RANGE",
+        "entityType": "NODE",
+        "labelsOrTypes": [
+          "Video"
+        ],
+        "properties": [
+          "category"
+        ]
+      },
+      {
+        "name": "video_file_size",
+        "state": "ONLINE",
+        "type": "RANGE",
+        "entityType": "NODE",
+        "labelsOrTypes": [
+          "Video"
+        ],
+        "properties": [
+          "file_size_bytes"
+        ]
+      },
+      {
+        "name": "video_id_unique",
+        "state": "ONLINE",
+        "type": "RANGE",
+        "entityType": "NODE",
+        "labelsOrTypes": [
+          "Video"
+        ],
+        "properties": [
+          "id"
+        ]
+      },
+      {
+        "name": "video_length",
+        "state": "ONLINE",
+        "type": "RANGE",
+        "entityType": "NODE",
+        "labelsOrTypes": [
+          "Video"
+        ],
+        "properties": [
+          "length"
+        ]
+      },
+      {
+        "name": "video_views",
+        "state": "ONLINE",
+        "type": "RANGE",
+        "entityType": "NODE",
+        "labelsOrTypes": [
+          "Video"
+        ],
+        "properties": [
+          "views"
+        ]
+      }
+    ]
+  },
+  "total_seconds": 1.5829221000894904
+}

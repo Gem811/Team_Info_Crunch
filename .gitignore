@@ -1,2 +1,12 @@
 Dataset_Files/0222.zip
 Processed_Data/videos.csv
+.venv/
+.local/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+Neo4j-*.txt
+Processed_Data/*.csv
+Processed_Data/*ingestion*.json
