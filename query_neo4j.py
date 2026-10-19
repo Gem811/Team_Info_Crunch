@@ -168,15 +168,50 @@ def run_pagerank(session, k):
     edges = session.run("MATCH (a:Video)-->(b) RETURN a.id, b.id").values()
     fetched = perf_counter()
     scores, iterations = pagerank(nodes, edges)
+    computed = perf_counter()
     print(
-        f"pagerank: fetch {fetched - started:.2f} s, "
-        f"compute {perf_counter() - fetched:.2f} s, {iterations} iterations, "
+        f"pagerank: {iterations} iterations, "
         f"{len(nodes):,} nodes, {len(edges):,} edges",
         flush=True,
     )
     in_degree = Counter(target for _, target in edges)
     for node in sorted(scores, key=scores.get, reverse=True)[:k]:
         print(f"  {node}  score {scores[node]:.6f}  in-degree {in_degree[node]}")
+    return (fetched - started) * 1000, (computed - fetched) * 1000
+
+
+def print_summary(timings, pagerank_ms):
+    print("\nWarm median times, fastest to slowest:")
+    for name, timing in sorted(timings, key=lambda item: item[1]["warm_median_ms"]):
+        print(
+            f"{name}: {timing['warm_median_ms']:,.1f} ms "
+            f"(server {timing['server_median_ms']:,.0f} ms)"
+        )
+    warm = [timing["warm_median_ms"] for _, timing in timings]
+    server = [timing["server_median_ms"] for _, timing in timings]
+    print(
+        f"\nTotal for all {len(timings)} queries: {sum(warm):,.1f} ms "
+        f"(server {sum(server):,.0f} ms)"
+    )
+    print(
+        f"Average per query: {statistics.mean(warm):,.1f} ms "
+        f"(server {statistics.mean(server):,.1f} ms)"
+    )
+    print(
+        f"Median per query: {statistics.median(warm):,.1f} ms "
+        f"(server {statistics.median(server):,.1f} ms)"
+    )
+    if pagerank_ms:
+        fetch_ms, compute_ms = pagerank_ms
+        total_ms = sum(warm) + fetch_ms + compute_ms
+        print(
+            f"\nPageRank: {fetch_ms + compute_ms:,.0f} ms "
+            f"({fetch_ms:,.0f} ms fetch, {compute_ms:,.0f} ms compute)"
+        )
+        print(
+            f"\nTotal with PageRank: {total_ms:,.1f} ms, "
+            f"about {total_ms / 1000:.1f} seconds"
+        )
 
 
 def run(args):
@@ -187,8 +222,10 @@ def run(args):
         driver.verify_connectivity()
         # Larger pulls cut round trips when PageRank fetches every edge.
         with driver.session(database=database, fetch_size=10_000) as session:
+            timings = []
             for group, name, query in QUERIES:
                 rows, timing = benchmark(session, query, args.repeats)
+                timings.append((name, timing))
                 print(
                     f"{name} [{group}]: {len(rows)} rows, "
                     f"cold {timing['cold_ms']:.1f} ms, "
@@ -200,8 +237,10 @@ def run(args):
                 )
                 for row in rows[: args.rows]:
                     print(f"  {row}")
+            pagerank_ms = None
             if not args.skip_pagerank:
-                run_pagerank(session, PARAMETERS["k"])
+                pagerank_ms = run_pagerank(session, PARAMETERS["k"])
+    print_summary(timings, pagerank_ms)
 
 
 def main(argv=None):
