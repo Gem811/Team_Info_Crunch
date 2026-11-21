@@ -1,0 +1,54 @@
+{
+  "status": "published_and_validated",
+  "videos": 154696,
+  "recommendations": 356173,
+  "neo4j_version": "5.26.32",
+  "batch_size": 2000,
+  "seconds": {
+    "stage_output": 3.978,
+    "match_sources": 2.686,
+    "write": 6.713,
+    "read_back": 11.336,
+    "total": 20.736,
+    "end_to_end": 24.724
+  },
+  "graph_after_rerun": {
+    "nodes": 154696,
+    "edges": 351310
+  },
+  "lookup_example": {
+    "source": "4NcSRuGGqQo",
+    "results": [
+      {
+        "rank": 1,
+        "video_id": "mCWQLYVO0yU",
+        "category": "Autos & Vehicles",
+        "supporting_paths": 7
+      },
+      {
+        "rank": 2,
+        "video_id": "27QhwcwB6uI",
+        "category": "Autos & Vehicles",
+        "supporting_paths": 6
+      },
+      {
+        "rank": 3,
+        "video_id": "bnB8sQ0ON7U",
+        "category": "Autos & Vehicles",
+        "supporting_paths": 6
+      },
+      {
+        "rank": 4,
+        "video_id": "6KeL0JkpJTs",
+        "category": "Autos & Vehicles",
+        "supporting_paths": 5
+      },
+      {
+        "rank": 5,
+        "video_id": "Tha9LYuQCyQ",
+        "category": "Autos & Vehicles",
+        "supporting_paths": 5
+      }
+    ]
+  }
+}

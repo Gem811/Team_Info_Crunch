@@ -1,0 +1,70 @@
+{
+  "status": "passed",
+  "input": {
+    "nodes": {
+      "name": "nodes.csv",
+      "bytes": 9648106,
+      "sha256": "994c3b04ebdb96fd4325b0e87996f8f01a418663053ac11df06d5e19ff6fb0e2"
+    },
+    "edges": {
+      "name": "edges.csv",
+      "bytes": 8782765,
+      "sha256": "119870846e709ea2296902e33cedf972ad1e16fda565d60488121f38c7911bc0"
+    }
+  },
+  "spark": {
+    "version": "4.1.1",
+    "master": "local[4]",
+    "shuffle_partitions": "24"
+  },
+  "top_k": 5,
+  "output_mode": "local_stream",
+  "graph": {
+    "videos": 154696,
+    "distinct_edges": 351310,
+    "self_loops_excluded": 61
+  },
+  "results": {
+    "rows": 356173,
+    "videos_with_recommendations": 88938,
+    "max_support": 7
+  },
+  "sample": [
+    {
+      "source": "4NcSRuGGqQo",
+      "target": "mCWQLYVO0yU",
+      "support": 7,
+      "rank": 1
+    },
+    {
+      "source": "ArkxgMh_knc",
+      "target": "FGuhDD7ovP0",
+      "support": 7,
+      "rank": 1
+    },
+    {
+      "source": "B9Luj-hj9uc",
+      "target": "VJTv61PGQm4",
+      "support": 7,
+      "rank": 1
+    },
+    {
+      "source": "L9knfn1sQ6A",
+      "target": "IGXBK-tGUZM",
+      "support": 7,
+      "rank": 1
+    },
+    {
+      "source": "iF5WDoJiuEE",
+      "target": "SKorRTSqukY",
+      "support": 7,
+      "rank": 1
+    }
+  ],
+  "seconds": {
+    "read_and_validate": 12.588,
+    "rank_and_summarize": 9.321,
+    "write_results": 5.603,
+    "total": 27.511
+  }
+}
