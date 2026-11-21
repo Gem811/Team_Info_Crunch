@@ -1,0 +1,15 @@
+{
+  "status": "published_and_validated",
+  "videos": 154696,
+  "recommendations": 356173,
+  "neo4j_version": "5.26.32",
+  "batch_size": 2000,
+  "seconds": {
+    "stage_output": 4.448,
+    "match_sources": 2.992,
+    "write": 6.968,
+    "read_back": 10.449,
+    "total": 20.41,
+    "end_to_end": 24.936
+  }
+}
