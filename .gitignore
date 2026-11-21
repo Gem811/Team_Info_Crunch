@@ -10,3 +10,6 @@ __pycache__/
 Neo4j-*.txt
 Processed_Data/*.csv
 Processed_Data/*ingestion*.json
+Processed_Data/*pagerank*.json
+Processed_Data/*.csv.tmp
+spark-warehouse/

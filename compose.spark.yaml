@@ -1,0 +1,33 @@
+# Spark runtime for spark_pagerank.py. Kept apart from compose.yaml so it runs
+# without Neo4j credentials. Usage: see "Spark PageRank" in README.md.
+name: info-crunch-spark
+services:
+  spark:
+    image: apache/spark:4.1.1-scala2.13-java17-python3-ubuntu
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      # Lets plain python3 (unit tests) import pyspark and the repository modules.
+      PYTHONPATH: /app:/opt/spark/python:/opt/spark/python/lib/py4j-0.10.9.9-src.zip
+      # Fixed hash seed: PySpark requires it to hash-partition on the driver.
+      PYTHONHASHSEED: "0"
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONUNBUFFERED: "1"
+      HOME: /tmp
+    # Defaults fit Docker Desktop's usual 8 GB VM: 8 cores, a 3 GB JVM heap
+    # (cached RDDs spill to disk), and Python workers that spill at 256 MB.
+    # More cores need proportionally more VM memory.
+    entrypoint:
+      - /opt/spark/bin/spark-submit
+      - --master
+      - ${SPARK_MASTER:-local[8]}
+      - --driver-memory
+      - ${SPARK_DRIVER_MEMORY:-3g}
+      - --conf
+      - spark.python.worker.memory=256m
+      - --conf
+      - spark.log.level=WARN
+      - --conf
+      - spark.ui.showConsoleProgress=false
+    command: ["spark_pagerank.py"]

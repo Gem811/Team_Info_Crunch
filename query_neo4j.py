@@ -53,6 +53,13 @@ MATCH (v:Video)
 RETURN v.id AS id, COUNT { (v)<--() } AS in_degree
 ORDER BY in_degree DESC, id LIMIT $k
 """
+# v.pagerank is written by pagerank_neo4j.py; empty until that has run.
+TOP_PAGERANK_QUERY = """
+MATCH (v:Video) WHERE v.pagerank IS NOT NULL
+RETURN v.id AS id, v.pagerank AS pagerank, v.pagerank_rank AS rank,
+       v.category AS category
+ORDER BY v.pagerank DESC LIMIT $k
+"""
 TOP_UPLOADERS_QUERY = """
 MATCH (v:Video)
 RETURN v.uploader AS uploader, sum(v.views) AS views ORDER BY views DESC LIMIT $k
@@ -94,6 +101,7 @@ QUERIES = (
     ("top_k", "top_rated", TOP_RATED_QUERY),
     ("top_k", "top_referenced", TOP_REFERENCED_QUERY),
     ("top_k", "top_uploaders", TOP_UPLOADERS_QUERY),
+    ("top_k", "top_pagerank", TOP_PAGERANK_QUERY),
     ("range", "category_length_count", CATEGORY_LENGTH_COUNT_QUERY),
     ("range", "views_range", VIEWS_RANGE_QUERY),
     ("pattern", "reciprocal_pairs", RECIPROCAL_PAIRS_QUERY),
